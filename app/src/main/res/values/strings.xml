@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ICanCook</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="createButton">createButton</string>
+    <string name="facebookButton">facebookButton</string>
+    <string name="googleButton">googleButton</string>
 </resources>
