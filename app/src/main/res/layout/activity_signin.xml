@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toTopOf="@+id/createButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="facebook Signin" />
+        tools:text="facebook Sign in" />
 
     <Button
         android:id="@+id/googleButton"
@@ -43,5 +43,5 @@
         app:layout_constraintBottom_toTopOf="@+id/facebookButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Google Signin" />
+        tools:text="Google Sign in" />
 </android.support.constraint.ConstraintLayout>
