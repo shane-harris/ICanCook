@@ -78,22 +78,22 @@ public class CameraActivity extends AppCompatActivity {
 
     CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
-        public void onOpened(@androidx.annotation.NonNull CameraDevice camera) {
+        public void onOpened(@NonNull CameraDevice camera) {
             cameraDevice = camera;
             createCameraPreview();
         }
 
         @Override
-        public void onDisconnected(@androidx.annotation.NonNull CameraDevice camera) {
+        public void onDisconnected(@NonNull CameraDevice camera) {//@NonNull should be @androidx.annotation.NonNull
             cameraDevice.close();
         }
 
         @Override
-        public void onError(@androidx.annotation.NonNull CameraDevice camera, int error) {
+        public void onError(@NonNull CameraDevice camera, int error) {
             cameraDevice.close();
             cameraDevice = null;
         }
-    }
+    };
 
 
     @Override
@@ -130,7 +130,7 @@ public class CameraActivity extends AppCompatActivity {
     private void takePicture() {
         if(cameraDevice == null)
             return;
-        CameraManager manager = getSystemService(Context.CAMERA_SERVICE);
+        CameraManager manager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);
         try{
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraDevice.getId());
             Size[] jpegSizes = null;
@@ -198,7 +198,7 @@ public class CameraActivity extends AppCompatActivity {
             reader.setOnImageAvailableListener(readerListener, mBackgroundHandler);
             final CameraCaptureSession.CaptureCallback captureListener = new CameraCaptureSession.CaptureCallback() {
                 @Override
-                public void onCaptureCompleted(@androidx.annotation.NonNull CameraCaptureSession session, @androidx.annotation.NonNull CaptureRequest request, @androidx.annotation.NonNull TotalCaptureResult result) {
+                public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
                     Toast.makeText(CameraActivity.this, "Saved"+file,Toast.LENGTH_SHORT).show();
                     createCameraPreview();
@@ -208,7 +208,7 @@ public class CameraActivity extends AppCompatActivity {
 
             cameraDevice.createCaptureSession(outputSurface, new CameraCaptureSession.StateCallback() {
                 @Override
-                public void onConfigured(@androidx.annotation.NonNull CameraCaptureSession session) {
+                public void onConfigured(@NonNull CameraCaptureSession session) {
                     try{
                         cameraCaptureSessions.capture(captureBuilder.build(),captureListener,mBackgroundHandler);
                     } catch (CameraAccessException e) {
@@ -217,7 +217,7 @@ public class CameraActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onConfigureFailed(@androidx.annotation.NonNull CameraCaptureSession session) {
+                public void onConfigureFailed(@NonNull CameraCaptureSession session) {
 
                 }
             },mBackgroundHandler);
@@ -237,7 +237,7 @@ public class CameraActivity extends AppCompatActivity {
             captureRequestBuilder.addTarget(surface);
             cameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback() {
                 @Override
-                public void onConfigured(@androidx.annotation.NonNull CameraCaptureSession cameraCaptureSession) {
+                public void onConfigured(@NonNull CameraCaptureSession cameraCaptureSession) {
                     if(cameraDevice == null)
                         return;
                     cameraCaptureSessions = cameraCaptureSession;
@@ -245,7 +245,7 @@ public class CameraActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onConfigureFailed(@androidx.annotation.NonNull CameraCaptureSession session) {
+                public void onConfigureFailed(@NonNull CameraCaptureSession session) {
                     Toast.makeText(CameraActivity.this,"Changed", Toast.LENGTH_SHORT).show();
 
                 }
@@ -286,7 +286,7 @@ public class CameraActivity extends AppCompatActivity {
                 },REQUEST_CAMERA_PERMISSION);
                 return;
             }
-            manager.openCamera(cameraId,stateCallBack(),null);
+            manager.openCamera(cameraId,stateCallback,null);
 
         }
         catch (CameraAccessException e){
