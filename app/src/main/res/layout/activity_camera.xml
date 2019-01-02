@@ -20,7 +20,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_camera" />
+    <include
+        layout="@layout/content_camera"
+        android:layout_height="511dp" />
 <!-- Auto generated email button. Not needed
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

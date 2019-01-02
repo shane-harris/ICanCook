@@ -7,41 +7,75 @@
     tools:context=".SigninActivity">
 
     <Button
-        android:id="@+id/createButton"
-        android:layout_width="0dp"
+        android:id="@+id/create_button"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="300dp"
+        android:background="@android:color/holo_red_dark"
         android:text="@string/createButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Create Account" />
+        tools:backgroundTint="@android:color/holo_red_dark"
+        tools:text="Create an Account"
+        tools:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/facebookButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_in_button"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="200dp"
+        android:background="@android:color/transparent"
+        android:text="@string/signinbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_button"
+        tools:text="Sign In"
+        tools:textColor="@android:color/holo_red_dark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/search_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_search_category_default"
+        tools:backgroundTint="@android:color/holo_red_dark"
+        android:focusable="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/pantry_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/toast_frame"
+        tools:backgroundTint="@android:color/holo_red_dark" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/detectbutton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="30dp"
-        android:text="@string/facebookButton"
-        app:layout_constraintBottom_toTopOf="@+id/createButton"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="facebook Sign in" />
+        app:srcCompat="@android:drawable/ic_menu_camera"
+        tools:backgroundTint="@android:color/holo_red_dark" />
 
-    <Button
-        android:id="@+id/googleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/googleButton"
-        app:layout_constraintBottom_toTopOf="@+id/facebookButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Google Sign in" />
 </android.support.constraint.ConstraintLayout>

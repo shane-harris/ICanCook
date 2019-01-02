@@ -4,4 +4,7 @@
     <string name="createButton">createButton</string>
     <string name="facebookButton">facebookButton</string>
     <string name="googleButton">googleButton</string>
+    <string name="cameraButton">cameraButton</string>
+    <string name="pantrybutton">panrty</string>
+    <string name="signinbutton">signinbutton</string>
 </resources>

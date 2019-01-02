@@ -1,5 +1,6 @@
 package com.example.rockb.icancook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,5 +43,13 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
+    }
+
+    public void onOpenCameraClick(View view) throws Exception {
+        Intent openCameraIntent = new Intent(this, CameraActivity.class);
+
+        final int result = 1;
+
+        startActivity(openCameraIntent);
     }
 }
